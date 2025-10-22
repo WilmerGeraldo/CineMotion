@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineMotion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="/IMG/Logo/Logo.png" type="image/x-icon" >
+</head>
+<body class="font-sans">
+    <!-- Header/Navbar -->
+    <header class="bg-white shadow-md shadow-gray-300/50 py-4 px-6 fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center gap-2">
+                <a href="/Index.html" class="text-red-700 text-2xl flex items-center gap-2">
+                <i class="fas fa-theater-masks"></i>
+                <span class="text-xl font-bold text-gray-800">CineMotion</span>
+                </a>
+            </div>
+            
+           <!-- Navigation Menu (Centered) -->
+            <nav class="hidden md:flex items-center gap-8 absolute left-1/2 transform -translate-x-1/2">
+                <a href="/Index.html" class="nav-link text-gray-700 hover:text-red-700 transition flex items-center gap-1">
+                    <i class="fas fa-home text-sm"></i>
+                    <span>Inicio</span>
+                </a>
+                <a href="/Cartelera/Peliculas.html" class="nav-link text-gray-700 hover:text-red-700 transition flex items-center gap-1">
+                    <i class="fas fa-ticket-alt text-sm"></i>
+                    <span>Cartelera</span>
+                </a>
+                <a href="#promociones" class="nav-link text-gray-700 hover:text-red-700 transition flex items-center gap-1">
+                    <i class="fas fa-tags text-sm"></i>
+                    <span>Promociones</span>
+                </a>
+                <a href="/Contactos/Contactos.html" class="nav-link text-gray-700 hover:text-red-700 transition flex items-center gap-1">
+                    <i class="fas fa-envelope text-sm"></i>
+                    <span>Contactos</span>
+                </a>
+            </nav>
+
+            <script>
+            // Detectar página actual y marcar enlace activo
+            document.addEventListener('DOMContentLoaded', () => {
+                const currentPath = window.location.pathname;
+                const navLinks = document.querySelectorAll('.nav-link');
+
+                navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPath) {
+                    link.classList.add('text-red-700', 'font-semibold');
+                } else {
+                    link.classList.remove('text-red-700');
+                }
+                });
+            });
+            </script>
+            
+            <!-- Login Button -->
+            <a href="/Login/LogIn.html" class="bg-gradient-to-r from-red-700 to-red-800 text-white px-6 py-2 rounded-lg hover:scale-110 transition-transform duration-300 ease-in-out flex items-center gap-2 shadow-md hover:shadow-lg">
+                <i class="fas fa-user"></i>
+                <span>Iniciar Sesión</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="pt-24 pb-16 bg-gradient-to-br from-purple-100 via-blue-50 to-pink-50 min-h-screen flex items-center">
+        <div class="max-w-7xl mx-auto px-6 py-20 text-center">
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-8">
+                <span class="text-gray-900 block">¡Vamo' pal cine</span>
+                <span class="text-red-700 block">que hoy hay full acción!</span>
+            </h1>
+
+            <p class="text-2xl md:text-1xl text-gray-700 mb-4">¡Busca!
+                <a href="/Cartelera/Peliculas.html" class="text-red-700 font-semibold underline hover:text-red-500 transition">tu película</a> preferida, sin estrés en CineMotion!
+            </p>
+
+            <p class="text-xl md:text-1xl text-gray-700 mb-10">
+                Estrenos, clásicos, 3D, VIP y más... 
+                <span class="text-red-700 font-semibold">¡Todo en un solo lugar!</span>
+            </p>
+
+            <a href="/Cartelera/Peliculas.html" class="bg-gradient-to-r from-red-700 to-red-800 text-white px-6 py-3 rounded-xl text-xl font-semibold 
+                shadow-xl inline-flex items-center gap-2 group 
+                transition-transform duration-300 ease-in-out 
+                hover:scale-110 hover:shadow-2xl">
+                <i class="fas fa-ticket-alt"></i>
+                <span>Ver Todas las Funciones</span>
+                <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+            </a>
+
+            <p class="text-sm text-gray-500 mt-4 flex items-center justify-center gap-2 animate-pulse">
+                <i class="fas fa-hand-point-up text-yellow-500"></i>
+                ¡Dale clic y descubre qué hay hoy!
+            </p>
+            
+            <!-- Stats -->
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
+                <div>
+                    <h3 class="text-4xl font-bold text-red-700">100+</h3>
+                    <p class="text-gray-700 mt-2">Películas</p>
+                </div>
+                <div>
+                    <h3 class="text-4xl font-bold text-red-700">15</h3>
+                    <p class="text-gray-700 mt-2">Salas</p>
+                </div>
+                <div>
+                    <h3 class="text-4xl font-bold text-red-700">24/7</h3>
+                    <p class="text-gray-700 mt-2">Disponible</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Types Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">
+                <span class="text-red-700">Todo tipo</span> <span class="text-gray-900">de películas</span>
+            </h2>
+            <p class="text-center text-gray-700 mb-12">
+                No importa qué te guste, aquí lo vas a encontrar
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-gradient-to-br from-pink-50 to-pink-100 p-6 rounded-2xl 
+                            transform transition-all duration-300 cursor-pointer
+                            border-2 border-transparent
+                            hover:-translate-y-2 hover:shadow-lg hover:border-pink-400">
+                    <div class="bg-pink-200 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-skull text-pink-700 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 text-lg mb-2">Terror & Suspenso</h3>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-gradient-to-br from-red-50 to-red-100 p-6 rounded-2xl 
+                            transform transition-all duration-300 cursor-pointer
+                            border-2 border-transparent
+                            hover:-translate-y-2 hover:shadow-lg hover:border-red-400">
+                    <div class="bg-red-200 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-rocket text-red-700 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 text-lg mb-2">Acción & Aventura</h3>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-2xl 
+                            transform transition-all duration-300 cursor-pointer
+                            border-2 border-transparent
+                            hover:-translate-y-2 hover:shadow-lg hover:border-green-400">
+                    <div class="bg-green-200 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-laugh text-green-700 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 text-lg mb-2">Comedia</h3>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 p-6 rounded-2xl 
+                            transform transition-all duration-300 cursor-pointer
+                            border-2 border-transparent
+                            hover:-translate-y-2 hover:shadow-lg hover:border-yellow-400">
+                    <div class="bg-yellow-200 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-child text-yellow-700 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 text-lg mb-2">Infantil</h3>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-gradient-to-br from-cyan-50 to-cyan-100 p-6 rounded-2xl 
+                            transform transition-all duration-300 cursor-pointer
+                            border-2 border-transparent
+                            hover:-translate-y-2 hover:shadow-lg hover:border-cyan-400">
+                    <div class="bg-cyan-200 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-robot text-cyan-700 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 text-lg mb-2">Ciencia Ficción</h3>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="bg-gradient-to-br from-red-50 to-red-100 p-6 rounded-2xl 
+                            transform transition-all duration-300 cursor-pointer
+                            border-2 border-transparent
+                            hover:-translate-y-2 hover:shadow-lg hover:border-red-400">
+                    <div class="bg-red-200 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-heart text-red-700 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 text-lg mb-2">Romance</h3>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-2xl 
+                            transform transition-all duration-300 cursor-pointer
+                            border-2 border-transparent
+                            hover:-translate-y-2 hover:shadow-lg hover:border-purple-400">
+                    <div class="bg-purple-200 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-theater-masks text-purple-700 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 text-lg mb-2">Drama</h3>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-6 rounded-2xl 
+                            transform transition-all duration-300 cursor-pointer
+                            border-2 border-transparent
+                            hover:-translate-y-2 hover:shadow-lg hover:border-orange-400">
+                    <div class="bg-orange-200 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-hat-cowboy text-orange-700 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 text-lg mb-2">Clásicos</h3>
+                </div>
+            </div>
+
+
+            
+            <div class="text-center mt-10">
+                <a href="#" class="text-red-700 font-semibold inline-flex items-center gap-2 hover:gap-3 transition-all">
+                    <span>Y muchas más categorías</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-gradient-to-br from-gray-50 to-gray-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">
+                <span class="text-gray-900">¡Que no te pille</span> <span class="text-red-700">desprevenio!</span>
+            </h2>
+            <p class="text-center text-gray-700 mb-12">
+                Con CineMotion siempre sabrás dónde está la mejor función
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Feature 1 -->
+            <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-2 hover:border-pink-500 border-2 border-transparent transition-all duration-300">
+                <div class="bg-pink-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                <i class="fas fa-map-marker-alt text-pink-700 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Cerca de Ti</h3>
+                <p class="text-gray-700">
+                Disfruta de tus películas favoritas en un solo lugar, con la mejor comodidad y funciones para todos.
+                </p>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-2 hover:border-purple-500 border-2 border-transparent transition-all duration-300">
+                <div class="bg-purple-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                <i class="fas fa-sync-alt text-purple-700 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Siempre Actualizado</h3>
+                <p class="text-gray-700">
+                Estrenos de última hora, cambios de fecha, nuevas funciones... ¡Toda la info al día!
+                </p>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-2 hover:border-orange-500 border-2 border-transparent transition-all duration-300">
+                <div class="bg-orange-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                <i class="fas fa-users text-orange-700 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Para Todos los Gustos</h3>
+                <p class="text-gray-700">
+                Estrenos, clásicos y todo tipo de películas para todos los gustos... ¡Diversidad total!
+                </p>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="relative py-20 bg-gradient-to-br from-purple-700 via-red-600 to-orange-700 text-white overflow-hidden">
+        <!-- Burbujas de fondo con animación -->
+        <div class="absolute top-10 left-10 w-32 h-32 bg-white opacity-10 rounded-full animate-bubble1"></div>
+        <div class="absolute top-1/4 right-16 w-48 h-48 bg-white opacity-10 rounded-full animate-bubble2"></div>
+        <div class="absolute bottom-20 left-20 w-40 h-40 bg-white opacity-10 rounded-full animate-bubble3"></div>
+        <div class="absolute bottom-10 right-10 w-32 h-32 bg-white opacity-10 rounded-full animate-bubble4"></div>
+        <div class="absolute top-1/2 left-1/2 w-24 h-24 bg-white opacity-10 rounded-full -translate-x-1/2 -translate-y-1/2 animate-bubble5"></div>
+
+        <div class="relative max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">¿Qué esperas?</h2>
+            <p class="text-xl mb-2">Miles de películas te están esperando.</p>
+            <p class="text-xl font-semibold text-yellow-300 mb-8">¡Empieza a explorar ahora!</p>
+            
+            <a href="/Cartelera/Peliculas.html" class="bg-white text-red-700 px-10 py-4 rounded-lg text-lg font-semibold hover:scale-110 hover:bg-gray-100 transition shadow-lg inline-flex items-center gap-3 group">
+                <i class="fas fa-search"></i>
+                <span>Descubrir Funciones Ahora</span>
+                <i class="fas fa-arrow-right group-hover:translate-x-1 transition"></i>
+            </a>
+            
+            <p class="text-sm mt-6 opacity-90 flex items-center justify-center gap-2 flex-wrap">
+                <i class="fas fa-check-circle"></i>
+                <span>Explora • Disfruta • Sin límites</span>
+            </p>
+        </div>
+    </section>
+
+    <style>
+    @keyframes float1 {
+    0%, 100% { transform: translateY(0px) translateX(0px); }
+    50% { transform: translateY(-20px) translateX(10px); }
+    }
+
+    @keyframes float2 {
+    0%, 100% { transform: translateY(0px) translateX(0px); }
+    50% { transform: translateY(-30px) translateX(-15px); }
+    }
+
+    @keyframes float3 {
+    0%, 100% { transform: translateY(0px) translateX(0px); }
+    50% { transform: translateY(-25px) translateX(20px); }
+    }
+
+    @keyframes float4 {
+    0%, 100% { transform: translateY(0px) translateX(0px); }
+    50% { transform: translateY(-15px) translateX(-10px); }
+    }
+
+    @keyframes float5 {
+    0%, 100% { transform: translateY(0px) translateX(0px); }
+    50% { transform: translateY(-10px) translateX(5px); }
+    }
+
+    /* Aplicando animaciones a las burbujas */
+    .animate-bubble1 { animation: float1 6s ease-in-out infinite; }
+    .animate-bubble2 { animation: float2 8s ease-in-out infinite; }
+    .animate-bubble3 { animation: float3 7s ease-in-out infinite; }
+    .animate-bubble4 { animation: float4 5s ease-in-out infinite; }
+    .animate-bubble5 { animation: float5 6.5s ease-in-out infinite; }
+    </style>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-b from-gray-900 to-black text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Columna 1 -->
+        <div>
+            <div class="flex items-center mb-4">
+            <i class="fas fa-theater-masks text-red-500 text-2xl mr-2"></i>
+            <span class="text-xl font-bold">CineMotion</span>
+            </div>
+            <p class="text-gray-400 text-sm">
+            Tu plataforma de cine en República Dominicana. Disfruta, explora y vive experiencias únicas.
+            </p>
+            <!-- Redes sociales -->
+            <div class="flex mt-4 space-x-4">
+            <a href="#" class="text-gray-400 hover:text-blue-600 transition">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-pink-500 transition">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-purple-500 transition">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-red-500 transition">
+                <i class="fab fa-youtube"></i>
+            </a>
+            </div>
+        </div>
+
+        <!-- Columna 2 -->
+        <div>
+            <h4 class="font-bold mb-4">Enlaces Rápidos</h4>
+            <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="/Index.html" class="hover:text-red-700 transition">Inicio</a></li>
+            <li><a href="/Cartelera/Peliculas.html" class="hover:text-red-700 transition">Explorar Funciones</a></li>
+            <li><a href="#" class="hover:text-red-700 transition">Salas de Cine</a></li>
+            <li><a href="#" class="hover:text-red-700 transition">Sobre Nosotros</a></li>
+            </ul>
+        </div>
+
+        <!-- Columna 3 -->
+        <div>
+            <h4 class="font-bold mb-4">Para Usuarios</h4>
+            <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="#" class="hover:text-red-700 transition">Comprar Boletos</a></li>
+            <li><a href="/Login/LogIn.html" class="hover:text-red-700 transition">Iniciar Sesión</a></li>
+            </ul>
+        </div>
+
+        <!-- Columna 4 -->
+        <div>
+            <h4 class="font-bold mb-4">Ubicación</h4>
+            <ul class="space-y-2 text-gray-400 text-sm">
+                <li class="flex items-center">
+                    <i class="fas fa-map-marker-alt mr-2 text-red-500"></i>
+                    <span>Calle Principal #123, Cotuí, Sánchez Ramírez, Rep. Dom.</span>
+                </li>
+            </ul>
+        </div>
+        </div>
+
+        <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+        <p>© 2025 CineMotion RD. Todos los derechos reservados.</p>
+        <div class="flex space-x-4 mt-4 md:mt-0">
+            <a href="#" class="hover:text-red-700 transition">Política de Privacidad</a>
+            <a href="#" class="hover:text-red-700 transition">Términos de Uso</a>
+        </div>
+        </div>
+    </div>
+    </footer>
+</body>
+</html>

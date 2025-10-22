@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineMotion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="/IMG/Logo/Logo.png" type="image/x-icon" >
+</head>
+<body class="font-sans">
+    <!-- Header/Navbar -->
+    <header class="bg-white shadow-md shadow-gray-300/50 py-4 px-6 fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center gap-2">
+                <a href="/Index.html" class="text-red-700 text-2xl flex items-center gap-2">
+                    <i class="fas fa-theater-masks"></i>
+                    <span class="text-xl font-bold text-gray-800">CineMotion</span>
+                </a>
+            </div>
+            
+            <!-- Navigation Menu (Centered) -->
+            <nav class="hidden md:flex items-center gap-8 absolute left-1/2 transform -translate-x-1/2">
+                <a href="/Index.html" class="nav-link text-gray-700 hover:text-red-700 transition flex items-center gap-1">
+                    <i class="fas fa-home text-sm"></i>
+                    <span>Inicio</span>
+                </a>
+                <a href="/Cartelera/Peliculas.html" class="nav-link text-gray-700 hover:text-red-700 transition flex items-center gap-1">
+                    <i class="fas fa-ticket-alt text-sm"></i>
+                    <span>Cartelera</span>
+                </a>
+                <a href="#promociones" class="nav-link text-gray-700 hover:text-red-700 transition flex items-center gap-1">
+                    <i class="fas fa-tags text-sm"></i>
+                    <span>Promociones</span>
+                </a>
+                <a href="/Contactos/Contactos.html" class="nav-link text-gray-700 hover:text-red-700 transition flex items-center gap-1">
+                    <i class="fas fa-envelope text-sm"></i>
+                    <span>Contactos</span>
+                </a>
+            </nav>
+
+            <script>
+            // Detectar página actual y marcar enlace activo
+            document.addEventListener('DOMContentLoaded', () => {
+                const currentPath = window.location.pathname;
+                const navLinks = document.querySelectorAll('.nav-link');
+
+                navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPath) {
+                    link.classList.add('text-red-700', 'font-semibold');
+                } else {
+                    link.classList.remove('text-red-700');
+                }
+                });
+            });
+            </script>
+            
+            <!-- Login Button -->
+            <a href="/Login/LogIn.html" class="bg-gradient-to-r from-red-700 to-red-800 text-white px-6 py-2 rounded-lg hover:scale-110 transition-transform duration-300 ease-in-out flex items-center gap-2 shadow-md hover:shadow-lg">
+                <i class="fas fa-user"></i>
+                <span>Iniciar Sesión</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-purple-100 via-blue-50 to-pink-50 py-28"> <!-- Aumentado el padding superior -->
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">
+                <span class="text-gray-900">Explora </span>
+                <span class="text-red-700">Funciones</span>
+            </h1>
+            
+            <p class="text-lg text-gray-600 mb-12">
+                Elige la movie ideal pa’ pasarla heavy.
+            </p>
+
+            <!-- Search and Filters Card -->
+            <div class="bg-white rounded-2xl shadow-lg p-6 max-w-4xl mx-auto">
+                <!-- Search Bar -->
+                <div class="mb-6">
+                    <div class="relative">
+                        <input 
+                            type="text" 
+                            placeholder="Buscar películas, actores, géneros..."
+                            class="w-full px-6 py-4 pr-12 border-2 border-gray-200 rounded-xl focus:border-red-700 focus:outline-none transition text-gray-700"
+                        >
+                        <button class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-red-700 transition">
+                            <i class="fas fa-search text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Filters Row -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 justify-center">
+                    <!-- Category Filter -->
+                    <div>
+                        <label class="block text-left text-sm font-semibold text-gray-700 mb-2">
+                            Categoría
+                        </label>
+                        <select class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-red-700 focus:outline-none transition appearance-none bg-white cursor-pointer text-gray-700">
+                            <option><i class="fas fa-th-large"></i> Todas las categorías</option>
+                            <option>🎬 Acción</option>
+                            <option>📽️ Animación</option>
+                            <option>🦸‍♂️ Anime</option>
+                            <option>😂 Comedia</option>
+                            <option>🏀 Deporte</option>
+                            <option>🎭 Drama</option>
+                            <option>👻 Terror</option>
+                            <option>🚀 Ciencia Ficción</option>
+                            <option>💘 Romance</option>
+                            <option>🧒 Infantil</option>
+                        </select>
+                    </div>
+
+                    <!-- Date Filter -->
+                    <div>
+                        <label class="block text-left text-sm font-semibold text-gray-700 mb-2">
+                            Fecha
+                        </label>
+                        <select class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-red-700 focus:outline-none transition appearance-none bg-white cursor-pointer text-gray-700">
+                            <option>Todas las fechas</option>
+                            <option>Hoy</option>
+                            <option>Mañana</option>
+                            <option>Este Fin de Semana</option>
+                            <option>Próxima Semana</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Movies Section -->
+    <section class="py-12 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-lg md:text-xl font-semibold text-gray-900">
+                Mostrando: <span class="text-red-700 font-bold">8 funciones</span>
+                </h2>
+                
+                <!-- Sort Dropdown -->
+                <div class="flex items-center gap-3">
+                    <label class="text-sm text-gray-600 font-medium">Ordenar por:</label>
+                    <select class="px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-red-700 focus:outline-none transition bg-white cursor-pointer text-gray-700">
+                        <option>Más relevantes</option>
+                        <option>Más recientes</option>
+                        <option>Mejor valoradas</option>
+                        <option>Alfabético A-Z</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Movie Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Movie Card 1 -->
+                <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group">
+                    <div class="relative overflow-hidden">
+                        <img 
+                            src="https://image.tmdb.org/t/p/original/sUsVimPdA1l162FvdBIlmKBlWHx.jpg" 
+                            alt="Guardianes de la Galaxia Vol. 3"
+                            class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 line-clamp-1">Kimetsu no Yaiba: Infinity Castle</h3>
+                        <div class="flex items-center gap-2 text-xs text-gray-600 mb-3">
+                            <span class="flex items-center gap-1">
+                                <i class="far fa-clock"></i>
+                                2h 30min
+                            </span>
+                            <span>•</span>
+                            <span>Anime</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">
+                            Tanjiro y sus compañeros se enfrentan a Muzan en la Fortaleza Infinita, librando la batalla final para erradicar a los demonios.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-xs text-gray-500">Desde</p>
+                                <p class="text-xl font-bold text-red-700">RD$300</p>
+                            </div>
+                            <button class="bg-red-700 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-red-800 hover:scale-105 transition-all">
+                                Ver Horarios
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Movie Card 2 -->
+                <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group">
+                    <div class="relative overflow-hidden">
+                        <img 
+                            src="https://m.media-amazon.com/images/M/MV5BMjZmZTZmMjgtMzNjYS00MDE5LTljODAtZTg4YTg5NWI3MjMxXkEyXkFqcGc@._V1_FMjpg_UY5120_.jpg" 
+                            alt="Spider-Man: A Través del Spider-Verso"
+                            class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 line-clamp-1">Spider-Man: A Través del Spider-Verso</h3>
+                        <div class="flex items-center gap-2 text-xs text-gray-600 mb-3">
+                            <span class="flex items-center gap-1">
+                                <i class="far fa-clock"></i>
+                                2h 20min
+                            </span>
+                            <span>•</span>
+                            <span>Animación</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">
+                            Miles Morales regresa para la próxima aventura del Spider-Verso, una épica historia que transportará al Spider-Man de Brooklyn.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-xs text-gray-500">Desde</p>
+                                <p class="text-xl font-bold text-red-700">RD$300</p>
+                            </div>
+                            <button class="bg-red-700 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-red-800 hover:scale-105 transition-all">
+                                Ver Horarios
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Movie Card 3 -->
+                <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group">
+                    <div class="relative overflow-hidden">
+                        <img 
+                            src="https://upload.wikimedia.org/wikipedia/en/c/c9/Scream_VI_poster.jpg" 
+                            alt="Scream VI"
+                            class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 line-clamp-1">Scream VI</h3>
+                        <div class="flex items-center gap-2 text-xs text-gray-600 mb-3">
+                            <span class="flex items-center gap-1">
+                                <i class="far fa-clock"></i>
+                                2h 3min
+                            </span>
+                            <span>•</span>
+                            <span>Terror</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">
+                            Después de los últimos asesinatos de Ghostface, los cuatro supervivientes abandonan Woodsboro para comenzar un nuevo capítulo.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-xs text-gray-500">Desde</p>
+                                <p class="text-xl font-bold text-red-700">RD$300</p>
+                            </div>
+                            <button class="bg-red-700 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-red-800 hover:scale-105 transition-all">
+                                Ver Horarios
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Movie Card 4 -->
+                <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group">
+                    <div class="relative overflow-hidden">
+                        <img 
+                            src="https://m.media-amazon.com/images/M/MV5BZTYwYjJhNzYtY2ZiZS00ZmYxLWJkZjctYjRlNGIxYjI3ZTU0XkEyXkFqcGc@._V1_FMjpg_UY3000_.jpg" 
+                            alt="Air: La Historia Detrás del Logo"
+                            class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 line-clamp-1">F1 La Película</h3>
+                        <div class="flex items-center gap-2 text-xs text-gray-600 mb-3">
+                            <span class="flex items-center gap-1">
+                                <i class="far fa-clock"></i>
+                                2h 35min
+                            </span>
+                            <span>•</span>
+                            <span>Deporte</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">
+                            Un piloto decidido lucha por la gloria en el mundo implacable de la Fórmula 1, donde cada segundo cuenta y la velocidad lo es todo.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-xs text-gray-500">Desde</p>
+                                <p class="text-xl font-bold text-red-700">RD$300</p>
+                            </div>
+                            <button class="bg-red-700 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-red-800 hover:scale-105 transition-all">
+                                Ver Horarios
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Movie Card 5 -->
+                <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group">
+                    <div class="relative overflow-hidden">
+                        <img 
+                            src="https://b79946.smushcdn.com/79946/wp-content/uploads/2025/10/telefono-negro-2.jpg?lossy=2&strip=1&webp=1" 
+                            alt="The Flash"
+                            class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 line-clamp-1">El Teléfono Negro 2</h3>
+                        <div class="flex items-center gap-2 text-xs text-gray-600 mb-3">
+                            <span class="flex items-center gap-1">
+                                <i class="far fa-clock"></i>
+                                1h 54min
+                            </span>
+                            <span>•</span>
+                            <span>Terror</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">
+                            Después de nuevos y terroríficos sucesos, un grupo de jóvenes debe enfrentar al sádico asesino del teléfono negro antes de que sea demasiado tarde.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-xs text-gray-500">Desde</p>
+                                <p class="text-xl font-bold text-red-700">RD$300</p>
+                            </div>
+                            <button class="bg-red-700 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-red-800 hover:scale-105 transition-all">
+                                Ver Horarios
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Movie Card 6 -->
+                <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group">
+                    <div class="relative overflow-hidden">
+                        <img 
+                            src="https://sacnkprodarcms.blob.core.windows.net/content/posters/HO00010872.jpg" 
+                            alt="Elemental"
+                            class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 line-clamp-1">Ne Zha 2</h3>
+                        <div class="flex items-center gap-2 text-xs text-gray-600 mb-3">
+                            <span class="flex items-center gap-1">
+                                <i class="far fa-clock"></i>
+                                2h 25min
+                            </span>
+                            <span>•</span>
+                            <span>Animación</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">
+                            Ne Zha regresa para enfrentar un nuevo destino, desafiando a los dioses y demostrando que puede forjar su propio camino con valentía y poder.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-xs text-gray-500">Desde</p>
+                                <p class="text-xl font-bold text-red-700">RD$300</p>
+                            </div>
+                            <button class="bg-red-700 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-red-800 hover:scale-105 transition-all">
+                                Ver Horarios
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Movie Card 7 -->
+                <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group">
+                    <div class="relative overflow-hidden">
+                        <img 
+                            src="https://m.media-amazon.com/images/M/MV5BYzk0NjE4NzYtZjc5Ni00MTkxLTgyY2QtZjliOTA5N2U2YzM1XkEyXkFqcGc@._V1_FMjpg_UY3000_.jpg" 
+                            alt="Misión Imposible 7"
+                            class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 line-clamp-1">Tron: Ares</h3>
+                        <div class="flex items-center gap-2 text-xs text-gray-600 mb-3">
+                            <span class="flex items-center gap-1">
+                                <i class="far fa-clock"></i>
+                                1h 59min
+                            </span>
+                            <span>•</span>
+                            <span>Acción</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">
+                            Tron: Ares sigue a un héroe atrapado en un mundo digital peligroso, donde debe enfrentarse a enemigos virtuales para salvar la humanidad.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-xs text-gray-500">Desde</p>
+                                <p class="text-xl font-bold text-red-700">RD$300</p>
+                            </div>
+                            <button class="bg-red-700 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-red-800 hover:scale-105 transition-all">
+                                Ver Horarios
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Movie Card 8 -->
+                <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group">
+                    <div class="relative overflow-hidden">
+                        <img 
+                            src="https://m.media-amazon.com/images/M/MV5BM2VmMzRkYzgtMzg2ZC00OTFkLTkwMTYtNTMxNjM2YzI1MjgyXkEyXkFqcGc@._V1_FMjpg_UY4096_.jpg" 
+                            alt="Oppenheimer"
+                            class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 line-clamp-1">El Conjuro 4: Últimos Ritos</h3>
+                        <div class="flex items-center gap-2 text-xs text-gray-600 mb-3">
+                            <span class="flex items-center gap-1">
+                                <i class="far fa-clock"></i>
+                                2h 15min
+                            </span>
+                            <span>•</span>
+                            <span>Terror</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">
+                            Una familia enfrenta fenómenos paranormales aterradores mientras intentan protegerse de fuerzas demoníacas que buscan venganza.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-xs text-gray-500">Desde</p>
+                                <p class="text-xl font-bold text-red-700">RD$300</p>
+                            </div>
+                            <button class="bg-red-700 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-red-800 hover:scale-105 transition-all">
+                                Ver Horarios
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-b from-gray-900 to-black text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Columna 1 -->
+        <div>
+            <div class="flex items-center mb-4">
+            <i class="fas fa-theater-masks text-red-500 text-2xl mr-2"></i>
+            <span class="text-xl font-bold">CineMotion</span>
+            </div>
+            <p class="text-gray-400 text-sm">
+            Tu plataforma de cine en República Dominicana. Disfruta, explora y vive experiencias únicas.
+            </p>
+            <!-- Redes sociales -->
+            <div class="flex mt-4 space-x-4">
+            <a href="#" class="text-gray-400 hover:text-blue-600 transition">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-pink-500 transition">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-purple-500 transition">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-red-500 transition">
+                <i class="fab fa-youtube"></i>
+            </a>
+            </div>
+        </div>
+
+        <!-- Columna 2 -->
+        <div>
+            <h4 class="font-bold mb-4">Enlaces Rápidos</h4>
+            <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="/Index.html" class="hover:text-red-700 transition">Inicio</a></li>
+            <li><a href="/Cartelera/Peliculas.html" class="hover:text-red-700 transition">Explorar Funciones</a></li>
+            <li><a href="#" class="hover:text-red-700 transition">Salas de Cine</a></li>
+            <li><a href="#" class="hover:text-red-700 transition">Sobre Nosotros</a></li>
+            </ul>
+        </div>
+
+        <!-- Columna 3 -->
+        <div>
+            <h4 class="font-bold mb-4">Para Usuarios</h4>
+            <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="#" class="hover:text-red-700 transition">Comprar Boletos</a></li>
+            <li><a href="/Login/LogIn.html" class="hover:text-red-700 transition">Iniciar Sesión</a></li>
+            </ul>
+        </div>
+
+        <!-- Columna 4 -->
+        <div>
+            <h4 class="font-bold mb-4">Ubicación</h4>
+            <ul class="space-y-2 text-gray-400 text-sm">
+                <li class="flex items-center">
+                    <i class="fas fa-map-marker-alt mr-2 text-red-500"></i>
+                    <span>Calle Principal #123, Cotuí, Sánchez Ramírez, Rep. Dom.</span>
+                </li>
+            </ul>
+        </div>
+        </div>
+
+        <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+        <p>© 2025 CineMotion RD. Todos los derechos reservados.</p>
+        <div class="flex space-x-4 mt-4 md:mt-0">
+            <a href="#" class="hover:text-red-700 transition">Política de Privacidad</a>
+            <a href="#" class="hover:text-red-700 transition">Términos de Uso</a>
+        </div>
+        </div>
+    </div>
+    </footer>
+</body>
+</html>
